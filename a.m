@@ -1,4 +1,4 @@
-%This is the example from Page 536    kkk
+%This is the example from Page 536    kkkkkkk
 if 0
 	num = 5*[0.1 1];
 	f1 = [1 0]; f2 = [0.5 1]; f3 = [1/2500 0.6/50 1];
