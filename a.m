@@ -22,7 +22,7 @@ p = [0, -2, -5];
 k = 50;
 sys = zpk(z, p, k);
 
-sysc = zpk([0], [0.5] ,1);
+sysc = zpk([], [0.5] ,1);
 syst = series(sys, sysc);
 
 %figure(4)
@@ -32,7 +32,51 @@ syst = series(sys, sysc);
 figure(7)
 margin(syst)
 
-sysc = zpk([], [-0.1, 0.1] ,1);
+
+
+
+sysc = zpk([], [-1, -2] ,1);
+sysc2 = zpk([-0.1], [0],1);
+sysc3 = series(sysc, sysc2);
+sysc6 = feedback(sysc3, 1);
+
+sysc4 = zpk([-0.5],[0], 1);
+sysc5 = series(sysc, sysc4);
+sysc7 = feedback(sysc5, 1);
+
+sysc8 = zpk([-1.5],[0],1);
+sysc9 = series(sysc, sysc8);
+sysc10 = feedback(sysc9, 1);
+
+sysc11 = zpk([-2.5],[0],1);
+sysc12 = series(sysc, sysc11);
+sysc13 = feedback(sysc12, 1);
+
+sysc14 = zpk([-10], [0], 1);
+sysc15 = series(sysc, sysc14);
+
+
+
+sysc4 = feedback(sysc, 1);
+sysc5 = feedback(sysc3, 1);
+figure(1);
+step(sysc4);
+hold on;
+step(sysc5);
+sysc6 = zpk([], [-1/2], 1/2);
+
+
+sysc3 = zpk([2][-1, -1],1);
+sysc4 = zpk([], [-1, -1],2);
+sysc5 = zpk([2], [-1, -1], -1);
+
+
+
+
+figure(1);
+step(sysc);
+figure(2);
+step(sysc2);
 figure(7)
 margin(sysc)
 
